@@ -1,0 +1,49 @@
+#Matrix multiplication
+#Dimensions of the first matrix
+n = int(input("Enter the number of the first matrix rows: "))
+m = int(input("Enter the number of the first matrix columns: "))
+#Dimensions of the second matrix
+k = int(input("Enter the number of the second matrix rows: "))
+l = int(input("Enter number of the second matrix columns: "))
+
+if m != k:
+    print("Matrix multiplication is not possible.")
+else:
+     #Input matrix A
+    print("Enter the elements of matrix A.")
+    A = []
+    for i in range(n):
+        row = []
+        for j in range(m):
+            row.append(float(input(f"Enter A[{i}][{j}]: ")))
+        A.append(row)
+      #Display matrix A
+    from numpy import array
+    print("Matrix A is:")
+    print(array(A))
+    #Input matrix B
+    B = []
+    print("Enter the elements of matrix B.")
+    for i in range(k):
+         row = []
+         for j in range(l):
+            row.append(float(input(f"Enter B[{i}][{j}]: ")))
+         B.append(row)
+      #Display matrix B
+    print("Matrix B is:")
+    print(array(B))
+     # intialize the product matrix
+    C = []
+    for i in range(m):
+        row = []
+        for j in range(l):
+            row.append(0)
+        C.append(row)
+    #Matrix multiplication
+    for i in range(n):
+        for j in range(l):
+            C[i][j] = 0
+            for q in range(k):
+                C[i][j] = C[i][j] + A[i][q] * B[q][j]
+    print("A×B = ")
+    print(array(C))
